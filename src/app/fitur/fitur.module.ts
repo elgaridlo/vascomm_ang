@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrasiComponent } from './registrasi/registrasi.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { OTPComponent } from './OTP-fitur/otp-fitur.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegistrasiComponent, DashboardComponent],
+  declarations: [LoginComponent, RegistrasiComponent, DashboardComponent, OTPComponent],
   imports: [
     CommonModule,
     FiturRoutingModule,
@@ -17,7 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgbProgressbarModule
   ],
   exports: [
-      LoginComponent, RegistrasiComponent, DashboardComponent
+      LoginComponent, RegistrasiComponent, DashboardComponent, OTPComponent
   ]
 })
 export class FiturModule { }

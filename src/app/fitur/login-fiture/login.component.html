@@ -9,13 +9,24 @@
         <br><br>
       <!-- Login Form -->
       <form >
-        <input type="text" required class="fadeIn second" name="phone number" placeholder="phone number" [(ngModel)]="phoneNumber">
-        <input type="password" required id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password">
-        <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()" >
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="text" required class="fadeIn second" name="phone number" placeholder="phone number" [(ngModel)]="phoneNumber">
+                </div>
+                <div class="col-lg-12">
+                    <input type="password" required id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password">
+                </div>
+                <div class="col-lg-12">
+                    <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()" >
+                </div>
+                <div class="col-lg-12">
+                    <input type="submit" class="fadeIn fourth" value="Register" (click)="daftar()" >
+                </div>
+            </div>
+          </div>
 
-        <p>Or</p>
 
-        <input type="submit" class="fadeIn fourth" value="Register" (click)="daftar()" >
 
         <div class="alert alert-danger" role="alert" *ngIf="validasiData">
             {{message}}
@@ -25,7 +36,7 @@
       
       <!-- Remind Passowrd -->
       <div id="formFooter">
-        <a class="underlineHover" href="#">Forgot Password?</a>
+        <a class="underlineHover" (click)="otpDirect()">Verification by OTP?</a>
       </div>
   
     </div>

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit  {
         }
     
     async ngOnInit(){
-       
+       this.login = new LoginWrapper();
     }
     
     async filterByPhoneNumber(phoneNumber, password) {
@@ -60,9 +60,14 @@ export class LoginComponent implements OnInit  {
                     register = false;
                     break;
                 } else {
+                    console.log('phoneNumber ekse = ', element['phoneNumber'])
+                    this.dataUser ={
+                        phoneNumber: element['phoneNumber'], password: ''
+                    } 
+                    // this.login.password = '';
+                    register = false;
                     this.message = 'Password anda salah'
                     this.notifToast();
-                    register = false;
                     break;
                 }
             } else {
@@ -76,12 +81,8 @@ export class LoginComponent implements OnInit  {
     loginUser() {
         this.message = '';
         this.login = new LoginWrapper;
-        console.log('phone ', this.phoneNumber);
-        console.log('pass ', this.password);
         if ( this.password && this.phoneNumber ) {
             this.loading = true;
-            
-            console.log('masuk')
             this.login.password = this.password;
             this.login.phoneNumber = this.phoneNumber;
             this.filterByPhoneNumber(this.login.phoneNumber, this.login.password);
@@ -92,7 +93,7 @@ export class LoginComponent implements OnInit  {
     }
     lemparData(login) {
         this.loading = false;
-        this.router.navigate(['dashboard'], {state: login})
+        this.router.navigate(['dashboard'], {state: login['phoneNumber']})
     }
     registrasi(param) {
         this.loading = false
@@ -112,5 +113,14 @@ export class LoginComponent implements OnInit  {
         setInterval(()=> {
             this.validasiData = false
         }, 2000)
+    }
+    otpDirect() {
+        if (this.dataUser.phoneNumber) {
+            this.router.navigate(['otp'], {state: this.dataUser.phoneNumber})
+        } else {
+            console.log('phone number isi')
+            this.message = 'Isi phoneNumber terlebih dahuku'
+            this.notifToast()
+        }
     }
 }
