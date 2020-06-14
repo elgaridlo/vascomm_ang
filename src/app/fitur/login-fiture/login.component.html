@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+    
+    
+    <div id="formContent" >
+        <div class="alert alert-danger" role="alert" *ngIf="alert">
+            Anda belum mendaftar. Silahkan registrasi terlebih dahulu !
+        </div>
+      <!-- Tabs Titles -->
+        <br><br>
+      <!-- Login Form -->
+      <form >
+        <input type="text" required class="fadeIn second" name="phone number" placeholder="phone number" [(ngModel)]="phoneNumber">
+        <input type="password" required id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password">
+        <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()" >
+        <div class="alert alert-danger" role="alert" *ngIf="validasiData">
+            {{message}}
+        </div>
+        <p *ngIf="loading"><ngb-progressbar type="danger" [value]="100" [striped]="true"></ngb-progressbar></p>
+    </form>
+      
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+</div>
+
