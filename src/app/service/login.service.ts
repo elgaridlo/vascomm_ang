@@ -20,9 +20,9 @@ export class AuthenticationService {
 
     }
 
-    addData(data: any) {
+    createUser(data: any) {
         console.log('data service = ', data);
-        return this.db.collection('terjual')
+        return this.db.collection('authentication')
         .add({...data})
         .then(res => {
             console.log('res = ',res)},

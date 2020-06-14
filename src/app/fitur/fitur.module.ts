@@ -4,10 +4,12 @@ import { FiturRoutingModule } from './fitur-routing.module';
 import { LoginComponent } from './login-fiture/login.component';
 import { FormsModule } from '@angular/forms';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegistrasiComponent } from './registrasi/registrasi.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegistrasiComponent, DashboardComponent],
   imports: [
     CommonModule,
     FiturRoutingModule,
@@ -15,7 +17,7 @@ import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
     NgbProgressbarModule
   ],
   exports: [
-      LoginComponent
+      LoginComponent, RegistrasiComponent, DashboardComponent
   ]
 })
 export class FiturModule { }

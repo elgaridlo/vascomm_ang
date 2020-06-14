@@ -12,6 +12,11 @@
         <input type="text" required class="fadeIn second" name="phone number" placeholder="phone number" [(ngModel)]="phoneNumber">
         <input type="password" required id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password">
         <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()" >
+
+        <p>Or</p>
+
+        <input type="submit" class="fadeIn fourth" value="Register" (click)="daftar()" >
+
         <div class="alert alert-danger" role="alert" *ngIf="validasiData">
             {{message}}
         </div>

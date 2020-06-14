@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit  {
     }
     lemparData(login) {
         this.loading = false;
-        this.router.navigate(['register'], {state: login})
+        this.router.navigate(['dashboard'], {state: login})
     }
     registrasi(param) {
         this.loading = false
@@ -100,6 +100,10 @@ export class LoginComponent implements OnInit  {
         setInterval(()=> {
             this.alert = false
         }, 2000)
+    }
+
+    daftar() {
+        this.router.navigate(['register'])
     }
 
     notifToast() {
