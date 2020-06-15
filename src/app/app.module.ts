@@ -28,6 +28,7 @@ import { FirebaseConfig } from "../environments/firebase.config";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     ReactiveFormsModule
   ],
   providers: [],

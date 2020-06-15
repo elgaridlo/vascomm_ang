@@ -4,6 +4,7 @@ import { LoginComponent } from './login-fiture/login.component';
 import { RegistrasiComponent } from './registrasi/registrasi.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OTPComponent } from './OTP-fitur/otp-fitur.component';
+import { UpdateBioComponent } from './dashboard/body/update-bio/update-bio.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
       path:'otp',
       component: OTPComponent
+  },
+  {
+    path:'profile',
+    component: UpdateBioComponent 
   }
 ];
 
