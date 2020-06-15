@@ -37,6 +37,8 @@ export class UpdateBioComponent implements OnInit  {
 
     flag: number;
 
+    lengkapData = [];
+
     createButton: boolean = true;
     editButton: boolean = false;
     saveButton: boolean = true;
@@ -66,29 +68,40 @@ export class UpdateBioComponent implements OnInit  {
     }
 
     checkBio() {
-        let dataBio;
+        let dataBio = [];
         this.bioService.displayBio().subscribe(
             x => {
                 this.checkData(this.login.phoneNumber, x);
             }
         )
-        return this.flag = 0;
     }
 
     checkData(phoneNumber, params) {
-        let data;
+        let data = [];
+        let kaki;
         let id;
-        for (data of params) {
-            console.log('data = ', data)
+        let isi = [];
+        params.map(
+            c => {
+                const getData = c.payload.doc.data();
+                const getId = c.payload.doc.id;
+                console.log('getDaata = ', getData)
+                data.push(getData)
+            }
+        )
+        console.log('isisisisi  === ', isi)
+        for (kaki of data) {
+            console.log('data = ', kaki['phoneNumber'] === phoneNumber)
             if(data['phoneNumber'] === phoneNumber) {
                 this.flag = 1;
-                this.save(this.flag)
+                this.isiData(kaki)
+                // this.save(this.flag)
                 break;
             } else {
                 this.flag = 0;
             }
         }
-        this.save(this.flag)
+        // this.save(this.flag)
     }
 
     notifToast() {
@@ -135,9 +148,16 @@ export class UpdateBioComponent implements OnInit  {
 
         console.log('flagggging = ', flag)
         if(flag === 1) {
-            this.bioService.updateBio('id', this.dataBio)
+            // this.bioService.updateBio('id', this.dataBio)
         } else {
             this.bioService.createUserBio(this.dataBio);
         }
+    }
+    isiData (dataBio) {
+        console.log('dataBio = =' ,dataBio)
+        this.alamat = dataBio['alamat']
+        this.sekolah = dataBio['sekolah']
+        this.umur = dataBio['umur']
+        this.pekerjaan = dataBio['pekerjaan']
     }
 }
