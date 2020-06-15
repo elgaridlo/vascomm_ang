@@ -56,7 +56,7 @@ export class UpdateBioComponent implements OnInit  {
             //     this.router.navigate([''])
             // } else {
             //     this.login.phoneNumber = data.phoneNumber;
-            //     this.login.password = data.password;
+            //     // this.login.password = data.password;
             // }
         }
     
