@@ -6,15 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrasiComponent } from './registrasi/registrasi.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { OTPComponent } from './OTP-fitur/otp-fitur.component';
-import { UploadComponent } from './dashboard/body/upload/upload.component';
-import { UploadTaskComponent } from './dashboard/body/uploader-task/upload-task.component';
-import { DropzoneDirective } from './dashboard/body/dropzone.directive';
-import { UpdateBioComponent } from './dashboard/body/update-bio/update-bio.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegistrasiComponent, DashboardComponent, OTPComponent, UploadComponent, UploadTaskComponent, DropzoneDirective, UpdateBioComponent],
+  declarations: [LoginComponent, RegistrasiComponent, DashboardComponent],
   imports: [
     CommonModule,
     FiturRoutingModule,
@@ -22,7 +17,7 @@ import { UpdateBioComponent } from './dashboard/body/update-bio/update-bio.compo
     NgbProgressbarModule
   ],
   exports: [
-      LoginComponent, RegistrasiComponent, DashboardComponent, OTPComponent, UploadComponent, UploadTaskComponent, DropzoneDirective, UpdateBioComponent
+      LoginComponent, RegistrasiComponent, DashboardComponent
   ]
 })
 export class FiturModule { }

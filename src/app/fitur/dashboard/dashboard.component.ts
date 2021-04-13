@@ -14,39 +14,46 @@ import { element } from 'protractor';
 })
 export class DashboardComponent implements OnInit  {
     alert: boolean;
-    login = new LoginWrapper();
-    
-    loading: boolean = false;
+    loginData: any;
 
-    password: string;
-    phoneNumber: string;
     message: string;
+    admin: boolean;
 
     validasiData: boolean;
     currentUri: string;
     currentUrl: string;
+
+    item: any;
+
     constructor(
         public route: ActivatedRoute,
         public router: Router,
-        public db: AngularFirestore,
         public authentication: AuthenticationService
         ){
             this.currentUri = this.router.url;
             this.currentUrl = this.router.url.split('?')[0];
-            // let data = this.router.getCurrentNavigation().extras.state;
-            // if (!data) {
-            //     this.router.navigate([''])
-            // } else {
-            //     this.login.phoneNumber = data.phoneNumber;
-            //     this.login.password = data.password;
-            // }
+            this.loginData = this.router.getCurrentNavigation().extras.state;
+            if (!this.loginData) {
+                this.router.navigate([''])
+            }
         }
     
     async ngOnInit(){
         this.alert = false;
-
+        if(this.loginData.role === 'admin') {
+            this.admin = true;
+            this.message = 'You are an admin!'
+            this.getAllData();
+        } else {
+            this.admin = false;
+            this.message = 'You are not an admin!'
+        }
     }
-    directProfile(){ 
-        this.router.navigate(['profile'])
+    getAllData () {
+        this.authentication.getAll().subscribe(
+            res => {
+                this.item = res
+            }
+        )
     }
 }

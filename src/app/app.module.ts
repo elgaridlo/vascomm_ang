@@ -7,12 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FiturModule } from './fitur/fitur.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireDatabaseModule  } from '@angular/fire/database';
-import { FirebaseConfig } from "../environments/firebase.config";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,12 +19,8 @@ import { FirebaseConfig } from "../environments/firebase.config";
     NgbModule,
     FiturModule,
     FormsModule,
-    AngularFireModule.initializeApp(FirebaseConfig.firebase),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    AngularFireStorageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
