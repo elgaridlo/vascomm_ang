@@ -1,4 +1,5 @@
 export class LoginWrapper {
-    phoneNumber: any;
+    email: any;
     password: any;
+    role: any;
 }

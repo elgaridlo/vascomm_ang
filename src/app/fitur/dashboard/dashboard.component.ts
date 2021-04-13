@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule, FormGroup, FormControl } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { LoginWrapper } from 'src/app/model/login-wrapper';
 import { AuthenticationService } from 'src/app/service/login.service';
-import { log } from 'console';
-import { element } from 'protractor';
 
 @Component({
   selector: 'dashboard-app',
